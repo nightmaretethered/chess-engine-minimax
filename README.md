@@ -1,3 +1,4 @@
+
 # Chess Engine (Minimax + Alpha-Beta Pruning)
 
 A chess engine written in Python from scratch — full board representation, legal move generation (including check detection), and move selection via the minimax algorithm with alpha-beta pruning. The board is rendered directly in the terminal using ANSI escape codes for colored squares and Unicode chess piece symbols, with no external chess or GUI library used.
@@ -30,6 +31,9 @@ Each piece type has its own move-validation function (`isValidPawnMove`, `isVali
 At the search's depth limit, `EvaluatePoints` scores the position purely by material, using custom weights defined in `Price_Values` (Rook = 10, Knight = 8, Bishop = 6, Queen = 20, King = 999, Pawn = 2) — summed for White and subtracted for Black. This is a fixed, hand-crafted heuristic rather than a learned one — see "Future Improvements" below.
 
 ## Demo
+<img width="291" height="585" alt="TerminalExecution1" src="https://github.com/user-attachments/assets/b018e9bd-e66e-4e16-8a91-18033840012d" />
+<img width="296" height="610" alt="TerminalExecution3" src="https://github.com/user-attachments/assets/8caef72d-90db-459a-8d85-1c192051b956" />
+<img width="296" height="594" alt="TerminalExecution2" src="https://github.com/user-attachments/assets/e3eb1724-00fb-4aff-8d00-536268bb13b2" />
 
 <!-- Add a screenshot or short terminal recording (e.g. a GIF via terminalizer/asciinema) of the colored board mid-game here — this is the single highest-impact addition for a terminal-only project, since it's the first thing a visitor sees. -->
 
