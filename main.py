@@ -429,40 +429,65 @@ def PlayEngineMove(color):  #Play Black's move
 
 CreateBoard()
 DisplayBoard()
-#print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+
+Text = int(input("Enter choices \n 1 : AI vs AI \n 2 : Player vs AI \n"))
 while True:
-    #Text = input("Enter the Piece and Move index with space.").lower().split()
-    # if len(Text) == 2:
-    #     Piece_At_square_index = SquareToIndex(Text[0])
-    #     Move_To_square_index = SquareToIndex(Text[1])
-    #     if board[Piece_At_square_index] >= 1 and MovePiece(Piece_At_square_index,Move_To_square_index):
-    #         if -5 not in board:
-    #             print("White wins!")
-    #             break
-    #         DisplayBoard()
-    print("White moved!")
-    PlayEngineMove(1)
+    if Text == 2:
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+        Texts = input("Enter the Piece and Move index with space.").lower().split()
+        if len(Texts) == 2:
+            Piece_At_square_index = SquareToIndex(Texts[0])
+            Move_To_square_index = SquareToIndex(Texts[1])
+            if board[Piece_At_square_index] >= 1 and MovePiece(Piece_At_square_index,Move_To_square_index):
+                status = CheckGameStatus(-1)
+                DisplayBoard()
+                if status == "Stalemate":
+                    print("Stalemate")
+                    break
+                elif status == "Black" or status == "White":
+                    print(status, "wins!")
+                    break
 
-    status = CheckGameStatus(-1)
-    DisplayBoard()
-    if status == "Stalemate":
-        print("Stalemate")
-        break
-    elif status == "Black" or status == "White":
-        print(status, "wins!")
-        break
+                time.sleep(1)
+            print("Black Moved")
+            PlayEngineMove(-1)
+            status = CheckGameStatus(1)
+            DisplayBoard()
+            if status == "Stalemate":
+                    print("Stalemate")
+                    break
+            elif status == "Black" or status == "White":
+                print(status, "wins!")
+                break
+            time.sleep(1)
+    elif Text == 1:
+        print("White moved!")
+        PlayEngineMove(1)
 
-    time.sleep(1)
-
-    print("Black moved!")
-    PlayEngineMove(-1)
-    status = CheckGameStatus(1)
-    DisplayBoard()
-    if status == "Stalemate":
+        status = CheckGameStatus(-1)
+        DisplayBoard()
+        if status == "Stalemate":
             print("Stalemate")
             break
-    elif status == "Black" or status == "White":
-        print(status, "wins!")
+        elif status == "Black" or status == "White":
+            print(status, "wins!")
+            break
+
+        time.sleep(1)
+
+        print("Black moved!")
+        PlayEngineMove(-1)
+        status = CheckGameStatus(1)
+        DisplayBoard()
+        if status == "Stalemate":
+                print("Stalemate")
+                break
+        elif status == "Black" or status == "White":
+            print(status, "wins!")
+            break
+        time.sleep(1)
+    else:
+        print("Error! Enter options 1 or 2")
         break
 
     time.sleep(1)
