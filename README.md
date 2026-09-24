@@ -3,7 +3,7 @@
 
 A chess engine written in Python from scratch — full board representation, legal move generation (including check detection), and move selection via the minimax algorithm with alpha-beta pruning. The board is rendered directly in the terminal using ANSI escape codes for colored squares and Unicode chess piece symbols, with no external chess or GUI library used.
 
-Currently runs in **engine-vs-engine mode**: both sides are played by the search algorithm, so you can watch two versions of the same engine play a full game against each other move by move in the terminal.
+Currently runs in **engine-vs-engine mode** and **player-vs-engine mode**: both sides are played by the search algorithm, so you can watch two versions of the same engine play a full game against each other move by move in the terminal or go against the engine by playing as white.
 
 ## Features
 
@@ -52,8 +52,10 @@ python main.py
 
 The engine will immediately begin playing itself, printing the board and each side's move in the terminal, with a short delay (`time.sleep(1)`) between moves so the game is watchable in real time. It stops automatically on checkmate or stalemate.
 
-### Player-vs-engine mode
-The code includes a commented-out input block for entering moves manually in `file+rank` format (e.g. `e2 e4`), which can be re-enabled to play against the engine yourself instead of watching self-play.
+### Game modes
+On startup, choose:
+- **1** — AI vs AI (watch the engine play itself)
+- **2** — Player vs AI (play against the engine yourself)
 
 ## Project Structure
 
@@ -76,5 +78,5 @@ chess-engine-minimax/
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ## Author
-
+nightmaretethered
 [nightmaretethered](https://github.com/nightmaretethered)
